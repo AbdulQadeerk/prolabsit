@@ -1,5 +1,5 @@
 "use client";
-import { Reveal } from "@/components/Reveal";
+import { Reveal, StaggerContainer, StaggerItem, ScaleIn } from "@/components/Reveal";
 import { ArrowUpRight, LifeBuoy, Database, Server, ArrowRight } from "lucide-react";
 import Image from "next/image";
 
@@ -47,13 +47,13 @@ export default function Services() {
                 </div>
 
                 {/* Cards Row */}
-                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-16">
+                <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-16" staggerDelay={0.15}>
                     {services.map((service, index) => (
-                        <Reveal key={index} direction="up" delay={index * 0.1}>
-                            <div className="group bg-[#1a1f29] rounded-[4px] p-8 h-full flex flex-col justify-between hover:bg-[#1a1f29]/80 transition-all border border-white/5">
+                        <StaggerItem key={index} className="h-full">
+                            <div className="group bg-[#1a1f29] rounded-[4px] p-8 h-full flex flex-col justify-between hover:bg-[#1a1f29]/80 transition-all border border-white/5 hover:border-[#AEE2FF]/30 hover:shadow-[0_0_30px_-10px_rgba(174,226,255,0.2)]">
                                 <div>
                                     {/* Icon */}
-                                    <div className="mb-8 text-white group-hover:text-[#AEE2FF] transition-colors">
+                                    <div className="mb-8 text-white group-hover:text-[#AEE2FF] transition-colors group-hover:scale-110 duration-300 origin-left">
                                         <service.icon className="w-12 h-12 stroke-[1.5]" />
                                     </div>
 
@@ -69,32 +69,32 @@ export default function Services() {
                                     </a>
                                 </div>
                             </div>
-                        </Reveal>
+                        </StaggerItem>
                     ))}
 
                     {/* CTA Card (Image) */}
-                    <Reveal direction="up" delay={0.3}>
+                    <StaggerItem className="h-full">
                         <div className="relative rounded-[4px] overflow-hidden h-full min-h-[420px] group bg-[#1a1f29]">
                             <Image
                                 src="https://images.unsplash.com/photo-1542626991-cbc4e32524cc?auto=format&fit=crop&q=80&w=800"
                                 alt="Support Team"
                                 fill
-                                className="object-cover"
+                                className="object-cover transition-transform duration-700 group-hover:scale-110"
                             />
-                            <div className="absolute inset-0 bg-black/40"></div>
+                            <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors"></div>
 
                             <div className="absolute bottom-8 left-8 right-8">
                                 <h3 className="text-xl font-bold text-white mb-2 leading-tight">Need Any Help? We're Here To Help You!</h3>
                                 <p className="text-gray-300 text-xs mb-6 opacity-90">
                                     Comprehensive protection from evolving threats with risk assessments.
                                 </p>
-                                <button className="bg-[#AEE2FF] text-[#0b0e13] px-6 py-3 rounded-md font-bold text-sm flex items-center gap-2 hover:bg-white transition-colors">
+                                <button className="cursor-pointer bg-[#AEE2FF] text-[#0b0e13] px-6 py-3 rounded-md font-bold text-sm flex items-center gap-2 hover:bg-white transition-colors">
                                     Contact Us <ArrowUpRight className="w-4 h-4" />
                                 </button>
                             </div>
                         </div>
-                    </Reveal>
-                </div>
+                    </StaggerItem>
+                </StaggerContainer>
 
                 {/* Bottom Footer / Scroller Indicator */}
                 <div className="border-t border-white/10 pt-8 flex flex-col items-center gap-6">

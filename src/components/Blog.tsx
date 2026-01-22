@@ -1,5 +1,5 @@
 "use client";
-import { Reveal } from "@/components/Reveal";
+import { Reveal, StaggerContainer, StaggerItem, TextReveal } from "@/components/Reveal";
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 
@@ -44,17 +44,18 @@ export default function Blog() {
                     {/* Title Column (Right) */}
                     <div className="lg:col-span-8">
                         <Reveal direction="up">
-                            <h2 className="text-3xl md:text-5xl font-bold text-white leading-[1.2]">
-                                From digital transformation to data security – read what's shaping the future of modern it services
-                            </h2>
+                            <TextReveal
+                                text="From digital transformation to data security – read what's shaping the future of modern it services"
+                                className="text-3xl md:text-5xl font-bold text-white leading-[1.2]"
+                            />
                         </Reveal>
                     </div>
                 </div>
 
                 {/* Blog Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {blogs.map((blog, index) => (
-                        <Reveal key={index} direction="up" delay={index * 0.1}>
+                        <StaggerItem key={index}>
                             <div className="group h-full flex flex-col">
                                 {/* Image Container */}
                                 <div className="relative aspect-[4/3] rounded-2xl overflow-hidden mb-6">
@@ -65,7 +66,7 @@ export default function Blog() {
                                         className="object-cover transition-transform duration-700 group-hover:scale-110"
                                     />
                                     {/* Badge */}
-                                    <div className="absolute top-4 left-4">
+                                    <div className="absolute top-4 left-4 z-10">
                                         <span className="bg-[#1a1f29]/90 backdrop-blur-sm px-3 py-1.5 rounded-full text-[10px] uppercase font-bold text-white border border-white/10">
                                             {blog.badge}
                                         </span>
@@ -84,9 +85,9 @@ export default function Blog() {
                                     </a>
                                 </div>
                             </div>
-                        </Reveal>
+                        </StaggerItem>
                     ))}
-                </div>
+                </StaggerContainer>
 
             </div>
         </section>

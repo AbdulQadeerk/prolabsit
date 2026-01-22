@@ -1,5 +1,5 @@
 "use client";
-import { Reveal } from "@/components/Reveal";
+import { Reveal, TextReveal, StaggerContainer, StaggerItem } from "@/components/Reveal";
 import { ArrowUpRight, ArrowRight, Hexagon, Star } from "lucide-react";
 import Image from "next/image";
 
@@ -15,31 +15,32 @@ export default function Projects() {
                             <span className="inline-block py-2 px-4 rounded-full bg-white/5 border border-white/10 text-gray-300 text-xs font-semibold tracking-wide uppercase mb-6">
                                 • Our Projects
                             </span>
-                            <h2 className="text-4xl md:text-5xl lg:text-[56px] font-bold text-white leading-[1.1] mb-16">
-                                From concept to completion delivering results that matter
-                            </h2>
+                            <TextReveal
+                                text="From concept to completion delivering results that matter"
+                                className="text-4xl md:text-5xl lg:text-[56px] font-bold text-white leading-[1.1] mb-16"
+                            />
 
                             {/* Feature Grid */}
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-16">
-                                <div>
-                                    <div className="mb-4 text-white">
+                            <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-16">
+                                <StaggerItem>
+                                    <div className="mb-4 text-white group-hover:text-[#AEE2FF] transition-colors">
                                         <Hexagon className="w-10 h-10 stroke-[1.5]" />
                                     </div>
                                     <h4 className="text-white font-bold text-lg mb-3">24/7 Managed IT Support</h4>
                                     <p className="text-gray-400 text-sm leading-relaxed">
                                         Our around-the-clock managed IT support ensures your systems run smoothly.
                                     </p>
-                                </div>
-                                <div>
-                                    <div className="mb-4 text-white">
+                                </StaggerItem>
+                                <StaggerItem>
+                                    <div className="mb-4 text-white group-hover:text-[#AEE2FF] transition-colors">
                                         <Star className="w-10 h-10 stroke-[1.5]" />
                                     </div>
                                     <h4 className="text-white font-bold text-lg mb-3">Future Ready Solutions</h4>
                                     <p className="text-gray-400 text-sm leading-relaxed">
                                         Empower your business with technology that's built to adapt, scale, and thrive.
                                     </p>
-                                </div>
-                            </div>
+                                </StaggerItem>
+                            </StaggerContainer>
 
                             <button className="bg-[#AEE2FF] hover:bg-[#90d5ff] text-[#0b0e13] px-8 py-4 rounded-[4px] font-bold transition-all flex items-center gap-2 group">
                                 View All Projects
