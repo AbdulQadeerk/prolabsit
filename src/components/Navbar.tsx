@@ -1,7 +1,8 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu } from "lucide-react";
+import { Menu, Phone, ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 
 export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
@@ -15,34 +16,56 @@ export default function Navbar() {
     }, []);
 
     return (
-        <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? "bg-[#0b0e13]/90 backdrop-blur-md border-b border-white/10 py-0" : "bg-transparent py-4"}`}>
+        <nav className={`fixed w-full z-50 transition-all duration-300 border-b border-white/5 ${scrolled ? "bg-[#0b0e13]/90 backdrop-blur-md py-0" : "bg-transparent py-2 lg:py-4"}`}>
             <div className="container mx-auto px-4 md:px-6 h-20 flex items-center justify-between">
                 {/* Logo */}
-                <Link href="/" className="text-2xl font-bold text-white flex items-center gap-2">
-                    <span className="text-[#AEE2FF]">PRO</span>LABSIT
+                <Link href="/" className="flex items-center gap-2 group">
+                    <div className="w-10 h-10 bg-[#AEE2FF] rounded-full flex items-center justify-center text-[#0b0e13] font-bold text-xl group-hover:scale-110 transition-transform">
+                        <CodeIcon />
+                    </div>
+                    <span className="text-2xl font-bold text-white tracking-tight">Code.io</span>
                 </Link>
 
                 {/* Desktop Menu */}
-                <div className="hidden md:flex items-center gap-8">
-                    {["Home", "About", "Services", "Pages", "Blog", "Contact"].map((item) => (
-                        <Link key={item} href={`#${item.toLowerCase()}`} className="text-sm font-medium text-gray-300 hover:text-[#AEE2FF] transition-colors">
+                <div className="hidden lg:flex items-center gap-8">
+                    {["Home", "About Us", "Services", "Blog", "Pages", "Contact Us"].map((item) => (
+                        <Link key={item} href={`#${item.toLowerCase().replace(" ", "-")}`} className="text-sm font-medium text-white/90 hover:text-[#AEE2FF] transition-colors relative group">
                             {item}
                         </Link>
                     ))}
                 </div>
 
-                {/* CTA Button */}
-                <div className="hidden md:block">
-                    <button className="bg-[#AEE2FF] hover:bg-[#90d5ff] text-[#0b0e13] px-6 py-2.5 rounded-full font-bold transition-all transform hover:scale-105">
-                        Get A Quote
+                {/* Right Actions */}
+                <div className="hidden lg:flex items-center gap-8">
+                    {/* Call Us */}
+                    <div className="flex items-center gap-3">
+                        <div className="text-right hidden xl:block">
+                            <p className="text-xs text-gray-400 font-medium mb-0.5">Call Us at:</p>
+                            <p className="text-white font-bold tracking-wide">+(123) 456-789</p>
+                        </div>
+                        <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10 text-[#AEE2FF]">
+                            <Phone className="w-5 h-5" />
+                        </div>
+                    </div>
+
+                    {/* CTA Button */}
+                    <button className="bg-[#AEE2FF] hover:bg-[#90d5ff] text-[#0b0e13] px-6 py-3 rounded-full font-bold transition-all transform hover:-translate-y-1 flex items-center gap-2 group">
+                        Get a Free Consultation
+                        <ArrowUpRight className="w-5 h-5 group-hover:rotate-45 transition-transform" />
                     </button>
                 </div>
 
                 {/* Mobile Menu Toggle */}
-                <button className="md:hidden text-white">
+                <button className="lg:hidden text-white bg-white/5 p-2 rounded-lg border border-white/10">
                     <Menu className="w-6 h-6" />
                 </button>
             </div>
         </nav>
     );
 }
+
+const CodeIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-6 h-6">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
+    </svg>
+);

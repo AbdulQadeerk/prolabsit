@@ -1,45 +1,53 @@
 "use client";
 import { Reveal } from "@/components/Reveal";
-import { Star } from "lucide-react";
+import { Quote } from "lucide-react";
+import Image from "next/image";
 
 export default function Testimonials() {
     return (
-        <section id="testimonials" className="py-20 bg-[#0b0e13]">
-            <div className="container mx-auto px-4 md:px-6">
-                <div className="text-center max-w-2xl mx-auto mb-16">
-                    <Reveal direction="up">
-                        <span className="text-[#AEE2FF] font-semibold text-sm tracking-wider uppercase mb-2 block">Testimonials</span>
-                        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">What Our Clients Say</h2>
-                    </Reveal>
-                </div>
+        <section id="testimonials" className="relative h-[700px] md:h-[800px] flex items-center overflow-hidden">
+            {/* Background Image */}
+            <Image
+                src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1920"
+                alt="Office Background"
+                fill
+                className="object-cover"
+            />
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-black/5"></div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {[1, 2, 3].map((item, index) => (
-                        <Reveal key={item} direction="up" delay={index * 0.1}>
-                            <div className="bg-[#11141b] p-8 rounded-2xl border border-white/5 relative h-full">
-                                {/* Quote Icon */}
-                                <div className="absolute top-8 right-8 text-[#AEE2FF]/10 text-6xl font-serif">"</div>
+            <div className="container mx-auto px-4 md:px-6 relative z-10">
+                <div className="flex justify-end">
+                    {/* Glass Blur Card */}
+                    <div className="w-full max-w-[650px] bg-black/20 backdrop-blur-md rounded-[4px] p-10 md:p-14 text-center border-t border-r border-white/10 shadow-2xl">
+                        <Reveal>
+                            <span className="inline-block py-2 px-4 rounded-full bg-white/10 border border-white/10 text-white text-xs font-semibold tracking-wide uppercase mb-6">
+                                • Our Testimonials
+                            </span>
 
-                                <div className="flex gap-1 mb-6">
-                                    {[...Array(5)].map((_, i) => (
-                                        <Star key={i} className="w-4 h-4 text-yellow-500 fill-yellow-500" />
-                                    ))}
+                            <h2 className="text-2xl md:text-4xl font-bold text-white mb-8 leading-tight">
+                                Real feedback from businesses who trust our it solutions
+                            </h2>
+
+                            <div className="flex justify-center mb-6">
+                                <Quote className="w-10 h-10 text-[#AEE2FF] fill-[#AEE2FF]" />
+                            </div>
+
+                            <p className="text-white text-lg md:text-xl font-medium italic leading-relaxed mb-10 opacity-90">
+                                "Their team provided detailed roadmaps, proactive recommendations, and implemented a scalable infrastructure that we're confident will serve us for years. Their transparency, speed."
+                            </p>
+
+                            <div className="h-px w-full bg-gradient-to-r from-transparent via-white/20 to-transparent mb-8"></div>
+
+                            <div className="flex flex-col items-center">
+                                <div className="w-16 h-16 rounded-full border-2 border-white/20 overflow-hidden mb-4">
+                                    <img src="https://i.pravatar.cc/300?img=11" alt="Daniel Johnson" className="w-full h-full object-cover" />
                                 </div>
-                                <p className="text-gray-400 mb-6 leading-relaxed">
-                                    "Excellent service! The team was very professional and delivered the project on time. I would highly recommend them to anyone looking for IT solutions."
-                                </p>
-                                <div className="flex items-center gap-4">
-                                    <div className="w-12 h-12 rounded-full bg-gray-700 overflow-hidden">
-                                        <img src={`https://i.pravatar.cc/150?img=${item + 10}`} alt="Client" />
-                                    </div>
-                                    <div>
-                                        <div className="text-white font-bold">John Doe</div>
-                                        <div className="text-sm text-[#AEE2FF]">CEO, TechCorp</div>
-                                    </div>
-                                </div>
+                                <h4 className="text-xl font-bold text-white mb-1">Daniel Johnson</h4>
+                                <p className="text-gray-300 text-sm">Cybersecurity Specialist</p>
                             </div>
                         </Reveal>
-                    ))}
+                    </div>
                 </div>
             </div>
         </section>

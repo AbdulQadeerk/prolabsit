@@ -1,75 +1,118 @@
 "use client";
 
-import { Reveal } from "@/components/Reveal";
 import { RotatingText } from "@/components/DesignElements";
-import { MosaicImage } from "@/components/MosaicImage";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function Hero() {
-    return (
-        <section id="home" className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-[#0b0e13]">
-            {/* Background Elements */}
-            <div className="absolute top-0 right-0 w-1/2 h-full bg-[#AEE2FF]/10 blur-[100px] rounded-full pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-1/3 h-1/2 bg-purple-500/10 blur-[100px] rounded-full pointer-events-none" />
+    const fadeUp = {
+        hidden: { opacity: 0, y: 30 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+    };
 
-            {/* Spinning Circle */}
-            <div className="absolute top-20 left-10 w-24 h-24 border-2 border-dashed border-white/10 rounded-full animate-[spin_10s_linear_infinite] opacity-50" />
-            <div className="absolute bottom-20 right-1/3 w-32 h-32 border border-white/5 rounded-full animate-[bounce_5s_infinite] opacity-30" />
+    const slideInRight = {
+        hidden: { opacity: 0, x: 100 },
+        visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut", delay: 0.2 } }
+    };
+
+    const floatAnimation = {
+        animate: {
+            y: [-15, 15, -15],
+            transition: {
+                duration: 6,
+                repeat: Infinity,
+                ease: "easeInOut"
+            }
+        }
+    };
+
+    return (
+        <section id="home" className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden bg-[#0b0e13]">
+            {/* Background Gradients/Glows */}
+            <div className="absolute top-[-20%] right-[-10%] w-[800px] h-[800px] bg-[#AEE2FF]/5 blur-[120px] rounded-full pointer-events-none" />
+            <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-purple-900/10 blur-[120px] rounded-full pointer-events-none" />
 
             <div className="container mx-auto px-4 md:px-6 relative z-10">
-                <div className="max-w-3xl">
-                    <Reveal direction="up" delay={0.1}>
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-6">
-                            <span className="w-2 h-2 rounded-full bg-[#AEE2FF]"></span>
-                            <span className="text-white text-sm font-medium tracking-wide">
-                                Smarter IT. Stronger Business.
-                            </span>
-                        </div>
-                    </Reveal>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
 
-                    <Reveal direction="up" delay={0.2}>
-                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
-                            Empowering businesses through reliable & scalable it solutions
-                        </h1>
-                    </Reveal>
+                    {/* Left Content */}
+                    <div className="max-w-2xl">
+                        <motion.div
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, amount: 0.3 }}
+                            variants={{
+                                visible: { transition: { staggerChildren: 0.15 } }
+                            }}
+                        >
+                            {/* Badge */}
+                            <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8 w-fit">
+                                <span className="w-2 h-2 rounded-full bg-[#AEE2FF]"></span>
+                                <span className="text-white text-sm font-medium tracking-wide">
+                                    Smarter IT. Stronger Business.
+                                </span>
+                            </motion.div>
 
-                    <Reveal direction="up" delay={0.3}>
-                        <p className="text-lg text-gray-400 mb-8 max-w-xl leading-relaxed">
-                            Harness the power of intelligent IT solutions built to evolve with your business. From cloud infrastructure to 24/7 support, we deliver flexible, secure, and scalable services that empower you to innovate
-                        </p>
-                    </Reveal>
+                            {/* Heading */}
+                            <motion.h1 variants={fadeUp} className="text-4xl md:text-5xl lg:text-[68px] font-bold text-white leading-[1.1] mb-6 block">
+                                Empowering businesses through reliable & <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-[#AEE2FF]">scalable it solutions</span>
+                            </motion.h1>
 
-                    <Reveal direction="up" delay={0.4}>
-                        <div className="flex flex-wrap gap-4">
-                            <button className="bg-[#AEE2FF] hover:bg-[#90d5ff] text-[#0b0e13] px-8 py-3.5 rounded-full font-bold transition-all flex items-center gap-2 group">
-                                Get Started Now
-                                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                            </button>
-                            <button className="bg-white/5 hover:bg-white/10 border border-white/10 text-white px-8 py-3.5 rounded-full font-medium transition-all">
-                                View All Services
-                            </button>
-                        </div>
-                    </Reveal>
-                </div>
-            </div>
+                            {/* Description */}
+                            <motion.p variants={fadeUp} className="text-lg text-gray-400 mb-10 max-w-lg leading-relaxed">
+                                Harness the power of intelligent IT solutions built to evolve with your business. From cloud infrastructure to 24/7 support, we deliver flexible services.
+                            </motion.p>
 
-            {/* Decorative Image/Shape Placeholder on Right */}
-            <div className="hidden lg:block absolute top-1/2 right-0 -translate-y-1/2 w-[45%] h-[80%] rounded-l-3xl overflow-hidden animate-float">
-                <div className="w-full h-full bg-gradient-to-br from-[#AEE2FF]/10 to-purple-900/20 border-l border-t border-b border-white/10 backdrop-blur-sm relative">
-                    {/* Abstract tech shapes */}
-                    <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-64 h-64 bg-[#AEE2FF] rounded-full blur-[80px] opacity-20 animate-pulse"></div>
+                            {/* Buttons */}
+                            <motion.div variants={fadeUp} className="flex flex-wrap gap-4">
+                                <button className="cursor-pointer bg-[#AEE2FF] hover:bg-[#90d5ff] text-[#0b0e13] px-9 py-4 rounded-full font-bold transition-all flex items-center gap-2 group shadow-[0_0_20px_rgba(174,226,255,0.3)] hover:shadow-[0_0_30px_rgba(174,226,255,0.5)] transform hover:-translate-y-1">
+                                    Get Started Now
+                                    <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                </button>
+                                <button className="cursor-pointer bg-transparent hover:bg-white/5 border border-white/20 text-white px-9 py-4 rounded-full font-bold transition-all flex items-center gap-2 transform hover:-translate-y-1">
+                                    View All Services
+                                    <ArrowRight className="w-5 h-5 -rotate-45 group-hover:rotate-0 transition-transform" />
+                                </button>
+                            </motion.div>
+                        </motion.div>
                     </div>
 
-                    <MosaicImage
-                        src="https://demo.awaikenthemes.com/codeio/it-solutions-dark/wp-content/uploads/2025/08/hero-image.jpg"
-                        alt="Tech"
-                        className="w-full h-full mix-blend-overlay opacity-80"
-                    />
+                    {/* Right Content - Image */}
+                    <motion.div
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        className="relative lg:h-[600px] flex items-center justify-center lg:justify-end"
+                    >
+                        {/* Entrance Animation Wrapper */}
+                        <motion.div
+                            variants={slideInRight}
+                            className="relative w-full max-w-[600px] aspect-[4/5] lg:aspect-auto lg:h-full rounded-3xl"
+                        >
+                            {/* Floating Animation Wrapper */}
+                            <motion.div
+                                variants={floatAnimation}
+                                animate="animate"
+                                className="relative w-full h-full rounded-3xl overflow-hidden group"
+                            >
+                                <div className="absolute inset-0 bg-[#AEE2FF] opacity-0 group-hover:opacity-10 transition-opacity duration-500 z-10 pointer-events-none"></div>
+                                <Image
+                                    src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800"
+                                    alt="IT Solutions Team"
+                                    fill
+                                    className="object-cover"
+                                    priority
+                                />
 
-                    {/* Rotating Text Circle Overlay */}
-                    <RotatingText />
+                                {/* Rotating Text Badge - Positioned overlapping bottom left */}
+                                <div className="absolute bottom-8 left-8 z-20">
+                                    <RotatingText />
+                                </div>
+                            </motion.div>
+                        </motion.div>
+                    </motion.div>
+
                 </div>
             </div>
         </section>

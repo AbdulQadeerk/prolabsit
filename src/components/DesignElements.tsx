@@ -37,19 +37,27 @@ export const Marquee = () => {
 
 export const RotatingText = () => {
     return (
-        <div className="absolute bottom-20 right-12 hidden lg:flex items-center justify-center w-32 h-32 animate-[spin_10s_linear_infinite]">
-            <svg viewBox="0 0 100 100" width="100" height="100">
-                <defs>
-                    <path id="circle" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" />
-                </defs>
-                <text fontSize="14">
-                    <textPath xlinkHref="#circle" className="text-white fill-current uppercase tracking-widest text-[10px]">
-                        * Contact Us * Contact Us * Contact Us
-                    </textPath>
-                </text>
-            </svg>
-            <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-2 h-2 bg-[#AEE2FF] rounded-full"></div>
+        <div className="relative w-32 h-32 md:w-40 md:h-40 flex items-center justify-center">
+            {/* Text Circle */}
+            <div className="absolute inset-0 w-full h-full bg-[#AEE2FF] rounded-full animate-[spin_10s_linear_infinite] flex items-center justify-center shadow-lg">
+                <svg viewBox="0 0 100 100" width="100%" height="100%" className="w-full h-full p-2">
+                    <defs>
+                        <path id="circle" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" />
+                    </defs>
+                    <text fontSize="11.5" fontWeight="bold">
+                        <textPath xlinkHref="#circle" className="fill-[#0b0e13] uppercase tracking-[0.2em]">
+                            Contact Us • Contact Us •
+                        </textPath>
+                    </text>
+                </svg>
+            </div>
+            {/* Center Arrow */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-[#0b0e13] rounded-full flex items-center justify-center text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5 md:w-6 md:h-6 -rotate-45">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                    </svg>
+                </div>
             </div>
         </div>
     );

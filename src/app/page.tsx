@@ -1,9 +1,15 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
+import VideoShowcase from "@/components/VideoShowcase";
+import WhyChooseUs from "@/components/WhyChooseUs";
+import HowItWorks from "@/components/HowItWorks";
 import About from "@/components/About";
 import Stats from "@/components/Stats";
+import FeatureGrid from "@/components/FeatureGrid";
 import Projects from "@/components/Projects";
+import Features from "@/components/Features";
+import Pricing from "@/components/Pricing";
 import Testimonials from "@/components/Testimonials";
 import Blog from "@/components/Blog";
 import FAQ from "@/components/FAQ";
@@ -15,10 +21,16 @@ export default function Home() {
         <main className="min-h-screen bg-[#0b0e13]">
             <Navbar />
             <Hero />
-            <Services />
-            <About />
             <Stats />
+            <FeatureGrid />
+            <About />
+            <Services />
+            <VideoShowcase />
+            <WhyChooseUs />
+            <HowItWorks />
             <Projects />
+            <Features />
+            <Pricing />
             <Testimonials />
             <Blog />
             <FAQ />

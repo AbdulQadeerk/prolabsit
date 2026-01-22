@@ -1,69 +1,77 @@
 "use client";
 import { Reveal } from "@/components/Reveal";
-import { Marquee } from "@/components/DesignElements";
-import { CheckCircle2 } from "lucide-react";
-import Image from "next/image";
+import { ArrowUpRight, Plus } from "lucide-react";
+import Link from "next/link";
 
 export default function About() {
     return (
-        <section id="about" className="py-20 bg-[#0b0e13] overflow-hidden">
+        <section id="about" className="py-24 bg-[#0b0e13]">
             <div className="container mx-auto px-4 md:px-6">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                    {/* Image Side */}
-                    <div className="relative">
-                        <Reveal direction="left">
-                            <div className="relative rounded-2xl overflow-hidden border border-white/10">
-                                <div className="aspect-[4/3] bg-gray-800 relative">
-                                    {/* Placeholder for About Image */}
-                                    <img
-                                        src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=2070"
-                                        alt="About Us"
-                                        className="w-full h-full object-cover"
-                                    />
-                                </div>
-                            </div>
-                            {/* Floating Experience Card */}
-                            <div className="absolute -bottom-6 -right-6 lg:right-6 bg-[#AEE2FF] p-6 rounded-xl text-[#0b0e13] shadow-xl max-w-[200px] animate-float">
-                                <div className="text-4xl font-bold mb-1">10+</div>
-                                <div className="text-sm font-bold opacity-90">Years of Experience in IT Services</div>
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24">
+
+                    {/* Left Column - Badge Only (as per screenshot) */}
+                    <div className="lg:col-span-4 relative">
+                        <Reveal>
+                            <div className="inline-block py-2 px-4 rounded-full bg-white/5 border border-white/10 text-gray-300 text-xs font-semibold tracking-wide uppercase">
+                                • Innovation That Drives Growth
                             </div>
                         </Reveal>
                     </div>
 
-                    {/* Text Side */}
-                    <div>
-                        <Reveal direction="right">
-                            <span className="text-[#AEE2FF] font-semibold text-sm tracking-wider uppercase mb-2 block">About Our Company</span>
-                            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
-                                Preparing For Your Success Provide Best IT Solutions.
+                    {/* Right Column - Content */}
+                    <div className="lg:col-span-8">
+                        <Reveal direction="up">
+                            <h2 className="text-3xl md:text-5xl font-bold text-white mb-8 leading-[1.2]">
+                                Delivering scalable & innovative it solutions that
+                                empower businesses to embrace digital
+                                transform enhance security improve efficiency &
+                                accelerate sustainable growth.
                             </h2>
-                            <p className="text-gray-400 mb-6 leading-relaxed">
-                                We are architects of innovation, trailblazers of technological advancement, and partners in your success story. With a relentless pursuit of excellence, we deliver cutting-edge IT solutions.
+                            <p className="text-gray-400 text-lg mb-16 leading-relaxed max-w-3xl">
+                                We specialize in delivering end-to-end IT solutions that are both scalable and innovative, designed to meet the evolving needs of modern businesses. Our approach empowers organizations to embrace full-scale digital transformation while ensuring robust cybersecurity, streamlined operations, and enhanced system efficiency.
                             </p>
 
-                            <div className="space-y-4 mb-8">
-                                {[
-                                    "Award Winning Company",
-                                    "Professional Team Members",
-                                    "24/7 Support Service"
-                                ].map((item, i) => (
-                                    <div key={i} className="flex items-center gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#AEE2FF]" />
-                                        <span className="text-gray-300 font-medium">{item}</span>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
+                                {/* Metric 1 */}
+                                <div>
+                                    <div className="text-5xl md:text-6xl font-bold text-white mb-4">98%</div>
+                                    <h4 className="text-white font-bold text-lg mb-2">System Uptime Guaranteed:</h4>
+                                    <p className="text-gray-400 text-sm leading-relaxed">
+                                        Our robust infrastructure and proactive monitoring ensure that your systems remain operational 24/7 with minimal downtime.
+                                    </p>
+                                </div>
+
+                                {/* Metric 2 */}
+                                <div>
+                                    <div className="text-5xl md:text-6xl font-bold text-white mb-4">2.5K+</div>
+                                    <p className="text-gray-400 text-sm leading-relaxed mb-6">
+                                        We take the time to understand your loved one's needs, routines. We take the time
+                                    </p>
+
+                                    {/* Avatars */}
+                                    <div className="flex items-center -space-x-3">
+                                        {[1, 2, 3, 4, 5].map((i) => (
+                                            <div key={i} className="w-10 h-10 rounded-full border-2 border-[#0b0e13] bg-gray-700 overflow-hidden">
+                                                <img src={`https://i.pravatar.cc/100?img=${i + 20}`} alt="Client" className="w-full h-full object-cover" />
+                                            </div>
+                                        ))}
+                                        <div className="w-10 h-10 rounded-full border-2 border-[#0b0e13] bg-[#AEE2FF] flex items-center justify-center text-[#0b0e13]">
+                                            <Plus className="w-5 h-5" />
+                                        </div>
                                     </div>
-                                ))}
+                                </div>
                             </div>
 
-                            <button className="bg-white/10 hover:bg-white/20 text-white px-8 py-3 rounded-full font-medium transition-all border border-white/10">
-                                Learn More
-                            </button>
+                            <Link href="/about-us">
+                                <button className="bg-[#AEE2FF] hover:bg-[#90d5ff] text-[#0b0e13] px-8 py-4 rounded-md font-bold transition-all flex items-center gap-2 group">
+                                    More About Us
+                                    <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                </button>
+                            </Link>
+
                         </Reveal>
                     </div>
                 </div>
-            </div>
-
-            <div className="mt-20">
-                <Marquee />
             </div>
         </section>
     );

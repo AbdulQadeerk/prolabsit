@@ -1,78 +1,94 @@
 "use client";
 import { Reveal } from "@/components/Reveal";
-import { User, Calendar } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 
 const blogs = [
     {
-        title: "How to Optimize Your Website for SEO",
-        date: "May 20, 2024",
-        author: "Admin",
-        image: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&q=80&w=800",
+        title: "Cybersecurity in the Age of Remote Work: Preparing for a New Wave",
+        badge: "Automation",
+        image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=800",
     },
     {
-        title: "The Future of Artificial Intelligence",
-        date: "May 18, 2024",
-        author: "Admin",
-        image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=800",
+        title: "Unlocking the Power of AI & Automation in IT Service Management",
+        badge: "Automation",
+        image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800",
     },
     {
-        title: "Top 10 Trends in IT Solutions 2024",
-        date: "May 15, 2024",
-        author: "Admin",
-        image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=800",
+        title: "Why Data Backup & Disaster Recovery Plans Are Essential",
+        badge: "Data Backup",
+        image: "https://images.unsplash.com/photo-1463947628408-f8581a2f4aca?auto=format&fit=crop&q=80&w=800",
     },
+    {
+        title: "The Role of AI & Machine Learning in Cyber Defense",
+        badge: "Network Security",
+        image: "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?auto=format&fit=crop&q=80&w=800",
+    }
 ];
 
 export default function Blog() {
     return (
-        <section id="blog" className="py-20 bg-[#080a0f]">
+        <section id="blog" className="py-24 bg-[#0b0e13]">
             <div className="container mx-auto px-4 md:px-6">
-                <div className="text-center max-w-2xl mx-auto mb-16">
-                    <Reveal direction="up">
-                        <span className="text-[#AEE2FF] font-semibold text-sm tracking-wider uppercase mb-2 block">Our Blog</span>
-                        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Latest News & Blog</h2>
-                        <p className="text-gray-400">Stay updated with the latest trends and insights in technology.</p>
-                    </Reveal>
+
+                {/* Header Layout */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16">
+                    {/* Badge Column (Left) */}
+                    <div className="lg:col-span-4">
+                        <Reveal>
+                            <span className="inline-block py-2 px-4 rounded-full bg-white/5 border border-white/10 text-gray-300 text-xs font-semibold tracking-wide uppercase">
+                                • Latest Blogs
+                            </span>
+                        </Reveal>
+                    </div>
+                    {/* Title Column (Right) */}
+                    <div className="lg:col-span-8">
+                        <Reveal direction="up">
+                            <h2 className="text-3xl md:text-5xl font-bold text-white leading-[1.2]">
+                                From digital transformation to data security – read what's shaping the future of modern it services
+                            </h2>
+                        </Reveal>
+                    </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {/* Blog Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {blogs.map((blog, index) => (
                         <Reveal key={index} direction="up" delay={index * 0.1}>
-                            <div className="group bg-[#11141b] rounded-2xl overflow-hidden border border-white/5 hover:border-[#AEE2FF]/30 transition-all duration-300 h-full">
-                                <div className="aspect-video relative overflow-hidden">
-                                    <img
+                            <div className="group h-full flex flex-col">
+                                {/* Image Container */}
+                                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden mb-6">
+                                    <Image
                                         src={blog.image}
                                         alt={blog.title}
-                                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                        fill
+                                        className="object-cover transition-transform duration-700 group-hover:scale-110"
                                     />
-                                    <div className="absolute top-4 left-4 bg-[#AEE2FF] text-[#0b0e13] text-xs font-bold px-3 py-1 rounded-full uppercase">
-                                        Technology
+                                    {/* Badge */}
+                                    <div className="absolute top-4 left-4">
+                                        <span className="bg-[#1a1f29]/90 backdrop-blur-sm px-3 py-1.5 rounded-full text-[10px] uppercase font-bold text-white border border-white/10">
+                                            {blog.badge}
+                                        </span>
                                     </div>
+                                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
                                 </div>
-                                <div className="p-6">
-                                    <div className="flex items-center gap-4 text-xs text-gray-500 mb-4">
-                                        <div className="flex items-center gap-1">
-                                            <User className="w-3 h-3 text-[#AEE2FF]" />
-                                            {blog.author}
-                                        </div>
-                                        <div className="flex items-center gap-1">
-                                            <Calendar className="w-3 h-3 text-[#AEE2FF]" />
-                                            {blog.date}
-                                        </div>
-                                    </div>
-                                    <h3 className="text-xl font-bold text-white mb-4 hover:text-[#AEE2FF] transition-colors cursor-pointer">
+
+                                {/* Content */}
+                                <div>
+                                    <h3 className="text-lg font-bold text-white mb-4 leading-tight group-hover:text-[#AEE2FF] transition-colors cursor-pointer min-h-[50px]">
                                         {blog.title}
                                     </h3>
-                                    <button className="text-sm font-medium text-[#AEE2FF] hover:text-[#90d5ff] transition-colors uppercase tracking-wider">
-                                        Read More
-                                    </button>
+
+                                    <a href="#" className="flex items-center gap-2 text-white font-bold text-[10px] uppercase tracking-wider hover:text-[#AEE2FF] transition-colors">
+                                        Learn More <ArrowUpRight className="w-3 h-3" />
+                                    </a>
                                 </div>
                             </div>
                         </Reveal>
                     ))}
                 </div>
+
             </div>
         </section>
     );
 }
-
