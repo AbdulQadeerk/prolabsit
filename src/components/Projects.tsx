@@ -56,7 +56,7 @@ export default function Projects() {
                         <Reveal direction="left" delay={0.1}>
                             <div className="relative h-[480px] rounded-[32px] overflow-hidden group">
                                 <Image
-                                    src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800"
+                                    src="https://demo.awaikenthemes.com/codeio/it-solutions-dark/wp-content/uploads/2025/08/project-image-1.jpg"
                                     alt="CloudOps Transformation"
                                     fill
                                     className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -87,7 +87,7 @@ export default function Projects() {
                         <Reveal direction="left" delay={0.2}>
                             <div className="relative h-[480px] rounded-[32px] overflow-hidden group">
                                 <Image
-                                    src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&q=80&w=800"
+                                    src="https://demo.awaikenthemes.com/codeio/it-solutions-dark/wp-content/uploads/2025/08/project-image-2.jpg"
                                     alt="Retail POS System"
                                     fill
                                     className="object-cover transition-transform duration-700 group-hover:scale-105"

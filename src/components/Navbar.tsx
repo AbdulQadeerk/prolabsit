@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, Phone, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
+import { MagneticButton } from "@/components/MagneticButton";
+import { motion } from "framer-motion";
 
 export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
@@ -20,17 +22,25 @@ export default function Navbar() {
             <div className="container mx-auto px-4 md:px-6 h-20 flex items-center justify-between">
                 {/* Logo */}
                 <Link href="/" className="flex items-center gap-2 group">
-                    <div className="w-10 h-10 bg-[#AEE2FF] rounded-full flex items-center justify-center text-[#0b0e13] font-bold text-xl group-hover:scale-110 transition-transform">
-                        <CodeIcon />
-                    </div>
-                    <span className="text-2xl font-bold text-white tracking-tight">Code.io</span>
+                    <Image
+                        src="https://demo.awaikenthemes.com/codeio/it-solutions-dark/wp-content/uploads/2025/08/logo-dark.svg"
+                        alt="Codeio Logo"
+                        width={140}
+                        height={40}
+                        className="h-10 w-auto object-contain"
+                    />
                 </Link>
 
                 {/* Desktop Menu */}
                 <div className="hidden lg:flex items-center gap-8">
                     {["Home", "About Us", "Services", "Blog", "Pages", "Contact Us"].map((item) => (
-                        <Link key={item} href={`#${item.toLowerCase().replace(" ", "-")}`} className="text-sm font-medium text-white/90 hover:text-[#AEE2FF] transition-colors relative group">
+                        <Link
+                            key={item}
+                            href={`#${item.toLowerCase().replace(" ", "-")}`}
+                            className="text-sm font-medium text-white/90 hover:text-[#AEE2FF] transition-colors relative group py-2"
+                        >
                             {item}
+                            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#AEE2FF] to-[#60a5fa] group-hover:w-full transition-all duration-300" />
                         </Link>
                     ))}
                 </div>
@@ -49,10 +59,10 @@ export default function Navbar() {
                     </div>
 
                     {/* CTA Button */}
-                    <button className="bg-[#AEE2FF] hover:bg-[#90d5ff] text-[#0b0e13] px-6 py-3 rounded-full font-bold transition-all transform hover:-translate-y-1 flex items-center gap-2 group">
+                    <MagneticButton className="bg-[#AEE2FF] hover:bg-[#90d5ff] text-[#0b0e13] px-6 py-3 rounded-full font-bold transition-all flex items-center gap-2 group shadow-[0_0_20px_rgba(174,226,255,0.3)] hover:shadow-[0_0_35px_rgba(174,226,255,0.5)]">
                         Get a Free Consultation
                         <ArrowUpRight className="w-5 h-5 group-hover:rotate-45 transition-transform" />
-                    </button>
+                    </MagneticButton>
                 </div>
 
                 {/* Mobile Menu Toggle */}

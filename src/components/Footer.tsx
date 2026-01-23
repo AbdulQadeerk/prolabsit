@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { Facebook, Twitter, Linkedin, Github, Phone, Mail, ArrowUp } from "lucide-react";
 
 export default function Footer() {
@@ -19,10 +20,13 @@ export default function Footer() {
                     {/* Brand Column */}
                     <div className="lg:col-span-4">
                         <Link href="/" className="flex items-center gap-2 mb-6">
-                            <div className="w-8 h-8 rounded bg-[#AEE2FF] flex items-center justify-center text-[#0b0e13] font-bold text-xs">
-                                &lt;/&gt;
-                            </div>
-                            <span className="text-2xl font-bold text-white">Code.io</span>
+                            <Image
+                                src="https://demo.awaikenthemes.com/codeio/it-solutions-dark/wp-content/uploads/2025/08/logo-dark.svg"
+                                alt="Codeio Logo"
+                                width={120}
+                                height={32}
+                                className="h-8 w-auto object-contain"
+                            />
                         </Link>
                         <p className="text-gray-400 mb-8 leading-relaxed max-w-sm">
                             Codeio IT Solutions specializes in delivering cutting-edge managed IT services.

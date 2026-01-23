@@ -33,19 +33,17 @@ export const CustomCursor = () => {
 
     return (
         <motion.div
-            className="fixed top-0 left-0 z-[9999] pointer-events-none mix-blend-difference"
+            className="fixed top-0 left-0 z-[9999] pointer-events-none mix-blend-difference flex items-center justify-center"
             animate={{
-                x: mousePosition.x - (isHovering ? 20 : 10),
-                y: mousePosition.y - (isHovering ? 20 : 10),
-                height: isHovering ? 40 : 20,
-                width: isHovering ? 40 : 20,
-                border: isHovering ? "2px solid white" : "0px solid white",
-                backgroundColor: isHovering ? "transparent" : "white"
+                x: mousePosition.x - 20,
+                y: mousePosition.y - 20,
+                scale: isHovering ? 1.5 : 1,
             }}
             transition={{ type: "tween", ease: "backOut", duration: 0.2 }}
-            style={{
-                borderRadius: "50%",
-            }}
-        />
+        >
+            <div className="relative w-10 h-10 border border-white rounded-full flex items-center justify-center">
+                <div className={`w-1 h-1 bg-white rounded-full transition-all duration-200 ${isHovering ? "w-2 h-2" : ""}`} />
+            </div>
+        </motion.div>
     );
 };

@@ -8,7 +8,7 @@ export default function Testimonials() {
         <section id="testimonials" className="relative h-[700px] md:h-[800px] flex items-center overflow-hidden">
             {/* Background Image */}
             <Image
-                src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1920"
+                src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=1920"
                 alt="Office Background"
                 fill
                 className="object-cover"
@@ -41,7 +41,7 @@ export default function Testimonials() {
 
                             <div className="flex flex-col items-center">
                                 <div className="w-16 h-16 rounded-full border-2 border-white/20 overflow-hidden mb-4">
-                                    <img src="https://i.pravatar.cc/300?img=11" alt="Daniel Johnson" className="w-full h-full object-cover" />
+                                    <img src="https://demo.awaikenthemes.com/codeio/it-solutions-dark/wp-content/uploads/2025/08/author-1.jpg" alt="Daniel Johnson" className="w-full h-full object-cover" />
                                 </div>
                                 <h4 className="text-xl font-bold text-white mb-1">Daniel Johnson</h4>
                                 <p className="text-gray-300 text-sm">Cybersecurity Specialist</p>

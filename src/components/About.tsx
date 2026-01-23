@@ -53,7 +53,7 @@ export default function About() {
                                     <div className="flex items-center -space-x-3">
                                         {[1, 2, 3, 4, 5].map((i) => (
                                             <div key={i} className="w-10 h-10 rounded-full border-2 border-[#0b0e13] bg-gray-700 overflow-hidden relative hover:z-10 hover:scale-110 transition-transform">
-                                                <img src={`https://i.pravatar.cc/100?img=${i + 20}`} alt="Client" className="w-full h-full object-cover" />
+                                                <img src={`https://demo.awaikenthemes.com/codeio/it-solutions-dark/wp-content/uploads/2025/08/author-${i}.jpg`} alt="Client" className="w-full h-full object-cover" />
                                             </div>
                                         ))}
                                         <div className="w-10 h-10 rounded-full border-2 border-[#0b0e13] bg-[#AEE2FF] flex items-center justify-center text-[#0b0e13] relative z-0">

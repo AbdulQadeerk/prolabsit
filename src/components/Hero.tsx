@@ -1,6 +1,9 @@
 "use client";
 
-import { RotatingText } from "@/components/DesignElements";
+import { useState } from "react";
+import { RotatingText, TypewriterText } from "@/components/DesignElements";
+import { MagneticButton } from "@/components/MagneticButton";
+import { WaveOverlay } from "@/components/RippleEffect";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { motion, Variants } from "framer-motion";
 import Image from "next/image";
@@ -27,11 +30,44 @@ export default function Hero() {
         }
     };
 
+    const [isImageHovered, setIsImageHovered] = useState(false);
+
     return (
         <section id="home" className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden bg-[#0b0e13]">
             {/* Background Gradients/Glows */}
-            <div className="absolute top-[-20%] right-[-10%] w-[800px] h-[800px] bg-[#AEE2FF]/5 blur-[120px] rounded-full pointer-events-none" />
-            <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-purple-900/10 blur-[120px] rounded-full pointer-events-none" />
+            <motion.div
+                animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
+                transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute top-[-20%] right-[-10%] w-[800px] h-[800px] bg-[#AEE2FF]/5 blur-[120px] rounded-full pointer-events-none"
+            />
+            <motion.div
+                animate={{ scale: [1, 1.1, 1], opacity: [0.2, 0.4, 0.2] }}
+                transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-purple-900/10 blur-[120px] rounded-full pointer-events-none"
+            />
+
+            {/* Floating Particles */}
+            {[...Array(6)].map((_, i) => (
+                <motion.div
+                    key={i}
+                    className="absolute w-1 h-1 bg-[#AEE2FF]/30 rounded-full pointer-events-none"
+                    style={{
+                        left: `${15 + i * 15}%`,
+                        top: `${20 + (i % 3) * 25}%`,
+                    }}
+                    animate={{
+                        y: [0, -30, 0],
+                        opacity: [0.3, 0.8, 0.3],
+                        scale: [1, 1.5, 1],
+                    }}
+                    transition={{
+                        duration: 4 + i * 0.5,
+                        repeat: Infinity,
+                        delay: i * 0.3,
+                        ease: "easeInOut",
+                    }}
+                />
+            ))}
 
             <div className="container mx-auto px-4 md:px-6 relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
@@ -48,7 +84,13 @@ export default function Hero() {
                         >
                             {/* Badge */}
                             <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8 w-fit">
-                                <span className="w-2 h-2 rounded-full bg-[#AEE2FF]"></span>
+                                <Image
+                                    src="https://demo.awaikenthemes.com/codeio/it-solutions-dark/wp-content/uploads/2025/08/asterik-stare.svg"
+                                    alt="icon"
+                                    width={12}
+                                    height={12}
+                                    className="w-3 h-3"
+                                />
                                 <span className="text-white text-sm font-medium tracking-wide">
                                     Smarter IT. Stronger Business.
                                 </span>
@@ -56,7 +98,10 @@ export default function Hero() {
 
                             {/* Heading */}
                             <motion.h1 variants={fadeUp} className="text-4xl md:text-5xl lg:text-[68px] font-bold text-white leading-[1.1] mb-6 block">
-                                Empowering businesses through reliable & <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-[#AEE2FF]">scalable it solutions</span>
+                                Empowering businesses through reliable & <br className="hidden lg:block" />
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-[#AEE2FF]">
+                                    <TypewriterText text="scalable it solutions" delay={1} />
+                                </span>
                             </motion.h1>
 
                             {/* Description */}
@@ -66,14 +111,14 @@ export default function Hero() {
 
                             {/* Buttons */}
                             <motion.div variants={fadeUp} className="flex flex-wrap gap-4">
-                                <button className="cursor-pointer bg-[#AEE2FF] hover:bg-[#90d5ff] text-[#0b0e13] px-9 py-4 rounded-full font-bold transition-all flex items-center gap-2 group shadow-[0_0_20px_rgba(174,226,255,0.3)] hover:shadow-[0_0_30px_rgba(174,226,255,0.5)] transform hover:-translate-y-1">
+                                <MagneticButton className="cursor-pointer bg-[#AEE2FF] hover:bg-[#90d5ff] text-[#0b0e13] px-9 py-4 rounded-full font-bold transition-all flex items-center gap-2 group shadow-[0_0_20px_rgba(174,226,255,0.3)] hover:shadow-[0_0_40px_rgba(174,226,255,0.6)]">
                                     Get Started Now
-                                    <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                                </button>
-                                <button className="cursor-pointer bg-transparent hover:bg-white/5 border border-white/20 text-white px-9 py-4 rounded-full font-bold transition-all flex items-center gap-2 transform hover:-translate-y-1">
+                                    <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                                </MagneticButton>
+                                <MagneticButton className="cursor-pointer bg-transparent hover:bg-white/5 border border-white/20 hover:border-white/40 text-white px-9 py-4 rounded-full font-bold transition-all flex items-center gap-2 group">
                                     View All Services
                                     <ArrowRight className="w-5 h-5 -rotate-45 group-hover:rotate-0 transition-transform" />
-                                </button>
+                                </MagneticButton>
                             </motion.div>
                         </motion.div>
                     </div>
@@ -94,21 +139,58 @@ export default function Hero() {
                             <motion.div
                                 variants={floatAnimation}
                                 animate="animate"
-                                className="relative w-full h-full rounded-3xl overflow-hidden group"
+                                className="relative w-full h-full rounded-3xl overflow-visible group"
                             >
-                                <div className="absolute inset-0 bg-[#AEE2FF] opacity-0 group-hover:opacity-10 transition-opacity duration-500 z-10 pointer-events-none"></div>
-                                <Image
-                                    src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800"
-                                    alt="IT Solutions Team"
-                                    fill
-                                    className="object-cover"
-                                    priority
-                                />
+                                {/* Background Shape */}
+                                <div className="absolute top-10 right-[-40px] w-full h-full -z-10 animate-pulse">
+                                    <Image
+                                        src="https://demo.awaikenthemes.com/codeio/it-solutions-dark/wp-content/themes/codeio/assets/images/hero-image-bg-shape.svg"
+                                        alt="Background Shape"
+                                        width={600}
+                                        height={600}
+                                        className="w-full h-full opacity-60"
+                                    />
+                                </div>
 
-                                {/* Rotating Text Badge - Positioned overlapping bottom left */}
+                                <div
+                                    className="relative w-full h-full rounded-3xl overflow-hidden cursor-pointer"
+                                    onMouseEnter={() => setIsImageHovered(true)}
+                                    onMouseLeave={() => setIsImageHovered(false)}
+                                >
+                                    {/* Blue Overlay on Hover */}
+                                    <div className="absolute inset-0 bg-[#AEE2FF] opacity-0 group-hover:opacity-10 transition-opacity duration-500 z-10 pointer-events-none" />
+
+                                    {/* Water Wave Ripple Effect */}
+                                    <WaveOverlay isHovered={isImageHovered} />
+
+                                    <Image
+                                        src="https://demo.awaikenthemes.com/codeio/it-solutions-dark/wp-content/uploads/2025/08/hero-image.jpg"
+                                        alt="IT Solutions Team"
+                                        fill
+                                        className={`object-cover transition-transform duration-700 ${isImageHovered ? 'scale-105' : 'scale-100'}`}
+                                        priority
+                                    />
+                                </div>
+
+                                {/* Rotating Text Badge */}
                                 <div className="absolute bottom-8 left-8 z-20">
                                     <RotatingText />
                                 </div>
+
+                                {/* Review Badge */}
+                                <motion.div
+                                    animate={{ y: [10, -10, 10] }}
+                                    transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                                    className="absolute top-12 -right-8 z-20 hidden md:block"
+                                >
+                                    <Image
+                                        src="https://demo.awaikenthemes.com/codeio/it-solutions-dark/wp-content/uploads/2025/08/hero-review-image-dark.png"
+                                        alt="Reviews"
+                                        width={160}
+                                        height={80}
+                                        className="w-auto h-auto drop-shadow-2xl"
+                                    />
+                                </motion.div>
                             </motion.div>
                         </motion.div>
                     </motion.div>

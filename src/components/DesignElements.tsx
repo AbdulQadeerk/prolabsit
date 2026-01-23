@@ -1,6 +1,7 @@
 "use client";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useInView, Variants } from "framer-motion";
 import { useRef } from "react";
+import Image from "next/image";
 
 export const Marquee = () => {
     return (
@@ -18,15 +19,15 @@ export const Marquee = () => {
                     {[...Array(2)].map((_, i) => (
                         <div key={i} className="flex gap-16 text-white/80 font-bold text-xl uppercase tracking-wider items-center">
                             <span>Security</span>
-                            <span className="w-2 h-2 rounded-full bg-[#AEE2FF]"></span>
+                            <Image src="https://demo.awaikenthemes.com/codeio/it-solutions-dark/wp-content/uploads/2025/08/asterik-stare.svg" alt="*" width={12} height={12} className="w-3 h-3" />
                             <span>Cost-Effective</span>
-                            <span className="w-2 h-2 rounded-full bg-[#AEE2FF]"></span>
+                            <Image src="https://demo.awaikenthemes.com/codeio/it-solutions-dark/wp-content/uploads/2025/08/asterik-stare.svg" alt="*" width={12} height={12} className="w-3 h-3" />
                             <span>Business Continuity</span>
-                            <span className="w-2 h-2 rounded-full bg-[#AEE2FF]"></span>
+                            <Image src="https://demo.awaikenthemes.com/codeio/it-solutions-dark/wp-content/uploads/2025/08/asterik-stare.svg" alt="*" width={12} height={12} className="w-3 h-3" />
                             <span>Virtualization</span>
-                            <span className="w-2 h-2 rounded-full bg-[#AEE2FF]"></span>
+                            <Image src="https://demo.awaikenthemes.com/codeio/it-solutions-dark/wp-content/uploads/2025/08/asterik-stare.svg" alt="*" width={12} height={12} className="w-3 h-3" />
                             <span>Managed IT</span>
-                            <span className="w-2 h-2 rounded-full bg-[#AEE2FF]"></span>
+                            <Image src="https://demo.awaikenthemes.com/codeio/it-solutions-dark/wp-content/uploads/2025/08/asterik-stare.svg" alt="*" width={12} height={12} className="w-3 h-3" />
                         </div>
                     ))}
                 </motion.div>
@@ -46,7 +47,7 @@ export const RotatingText = () => {
                     </defs>
                     <text fontSize="11.5" fontWeight="bold">
                         <textPath xlinkHref="#circle" className="fill-[#0b0e13] uppercase tracking-[0.2em]">
-                            Contact Us • Contact Us •
+                            IT Solutions • Creative Agency •
                         </textPath>
                     </text>
                 </svg>
@@ -60,5 +61,57 @@ export const RotatingText = () => {
                 </div>
             </div>
         </div>
+    );
+};
+
+export const TypewriterText = ({ text, className = "", delay = 0 }: { text: string, className?: string, delay?: number }) => {
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true, amount: 0.5 });
+
+    // Split text into words to handle wrapping
+    const words = text.split(" ");
+
+    const container = {
+        hidden: { opacity: 0 },
+        visible: (i = 1) => ({
+            opacity: 1,
+            transition: { staggerChildren: 0.03, delayChildren: delay }
+        })
+    };
+
+    const child: Variants = {
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                type: "spring",
+                damping: 12,
+                stiffness: 200,
+            }
+        },
+        hidden: {
+            opacity: 0,
+            y: 20,
+        }
+    };
+
+    return (
+        <motion.span
+            ref={ref}
+            className={`inline-block ${className}`}
+            variants={container}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+        >
+            {words.map((word, index) => (
+                <span key={index} className={`inline-block whitespace-nowrap ${index === words.length - 1 ? "" : "mr-[0.25em]"}`}>
+                    {Array.from(word).map((letter, letterIndex) => (
+                        <motion.span variants={child} key={letterIndex} className="inline-block">
+                            {letter}
+                        </motion.span>
+                    ))}
+                </span>
+            ))}
+        </motion.span>
     );
 };

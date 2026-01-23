@@ -7,22 +7,22 @@ const blogs = [
     {
         title: "Cybersecurity in the Age of Remote Work: Preparing for a New Wave",
         badge: "Automation",
-        image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=800",
+        image: "https://demo.awaikenthemes.com/codeio/it-solutions-dark/wp-content/uploads/2025/08/post-1.jpg",
     },
     {
         title: "Unlocking the Power of AI & Automation in IT Service Management",
         badge: "Automation",
-        image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800",
+        image: "https://demo.awaikenthemes.com/codeio/it-solutions-dark/wp-content/uploads/2025/08/post-2.jpg",
     },
     {
         title: "Why Data Backup & Disaster Recovery Plans Are Essential",
         badge: "Data Backup",
-        image: "https://images.unsplash.com/photo-1463947628408-f8581a2f4aca?auto=format&fit=crop&q=80&w=800",
+        image: "https://demo.awaikenthemes.com/codeio/it-solutions-dark/wp-content/uploads/2025/08/post-4.jpg",
     },
     {
         title: "The Role of AI & Machine Learning in Cyber Defense",
         badge: "Network Security",
-        image: "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?auto=format&fit=crop&q=80&w=800",
+        image: "https://demo.awaikenthemes.com/codeio/it-solutions-dark/wp-content/uploads/2025/08/post-5.jpg",
     }
 ];
 

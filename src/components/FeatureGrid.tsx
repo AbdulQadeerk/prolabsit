@@ -47,7 +47,7 @@ export default function FeatureGrid() {
                                 <div className="flex items-center -space-x-4 mb-8">
                                     {[1, 2, 3, 4].map((i) => (
                                         <div key={i} className="w-12 h-12 rounded-full border-2 border-[#0b0e13] bg-gray-700 overflow-hidden relative z-10 hover:z-20 hover:scale-110 transition-transform">
-                                            <img src={`https://i.pravatar.cc/100?img=${i + 10}`} alt="User" className="w-full h-full object-cover" />
+                                            <img src={`https://demo.awaikenthemes.com/codeio/it-solutions-dark/wp-content/uploads/2025/08/author-${i}.jpg`} alt="User" className="w-full h-full object-cover" />
                                         </div>
                                     ))}
                                     <div className="w-12 h-12 rounded-full border-2 border-[#0b0e13] bg-[#AEE2FF] flex items-center justify-center text-black font-bold text-xs relative z-10">
@@ -70,7 +70,7 @@ export default function FeatureGrid() {
                         {/* Col 3: Image Card */}
                         <StaggerItem className="relative h-[300px] md:h-auto border-r border-b border-white/5 group overflow-hidden">
                             <Image
-                                src="https://images.unsplash.com/photo-1542626991-cbc4e32524cc?auto=format&fit=crop&q=80&w=800"
+                                src="https://demo.awaikenthemes.com/codeio/it-solutions-dark/wp-content/uploads/2025/08/company-benefits-box-1.jpg"
                                 alt="Team Working"
                                 fill
                                 className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -110,7 +110,7 @@ export default function FeatureGrid() {
 
                             {/* Support Person Image Overlay */}
                             <div className="absolute bottom-0 right-[-20px] w-64 h-64 z-0 pointer-events-none opacity-80 group-hover:scale-105 transition-transform duration-500 origin-bottom-right">
-                                <img src="https://i.ibb.co/51y1W1N/cta-img-placeholder.png" alt="Support" className="w-full h-full object-contain object-bottom" />
+                                <img src="https://demo.awaikenthemes.com/codeio/it-solutions-dark/wp-content/uploads/2025/08/company-benefits-contact-img.png" alt="Support" className="w-full h-full object-contain object-bottom" />
                             </div>
                         </StaggerItem>
 

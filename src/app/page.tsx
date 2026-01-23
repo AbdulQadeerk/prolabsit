@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import { Marquee } from "@/components/DesignElements";
 import Services from "@/components/Services";
 import VideoShowcase from "@/components/VideoShowcase";
 import WhyChooseUs from "@/components/WhyChooseUs";
@@ -21,6 +22,7 @@ export default function Home() {
         <main className="min-h-screen bg-[#0b0e13]">
             <Navbar />
             <Hero />
+            <Marquee />
             <Stats />
             <FeatureGrid />
             <About />

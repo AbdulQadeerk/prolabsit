@@ -1,5 +1,6 @@
 "use client";
 import { Reveal } from "@/components/Reveal";
+import { GlowingCard } from "@/components/GlowingCard";
 import { ArrowUpRight, Check, Star, Users, Briefcase, MessageSquare, ShieldCheck, Layers, Award } from "lucide-react";
 
 const features = [
@@ -70,32 +71,34 @@ export default function WhyChooseUs() {
                 <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-16">
                     {features.map((feature, index) => (
                         <Reveal key={index} direction="up" delay={index * 0.1}>
-                            <div className="group bg-[#11141b] rounded-[4px] p-8 h-full flex flex-col justify-between hover:bg-[#11141b]/80 transition-all border border-white/5">
-                                <div>
-                                    {/* Icon */}
-                                    <div className="mb-8 text-white group-hover:text-[#AEE2FF] transition-colors">
-                                        <feature.icon className="w-12 h-12 stroke-[1] opacity-90" />
+                            <GlowingCard className="h-full">
+                                <div className="group bg-[#11141b] rounded-[4px] p-8 h-full flex flex-col justify-between transition-all border border-white/5">
+                                    <div>
+                                        {/* Icon */}
+                                        <div className="mb-8 text-white group-hover:text-[#AEE2FF] transition-colors">
+                                            <feature.icon className="w-12 h-12 stroke-[1] opacity-90" />
+                                        </div>
+
+                                        <h3 className="text-xl font-bold text-white mb-8 min-h-[60px]">{feature.title}</h3>
+
+                                        {/* Check List */}
+                                        <ul className="space-y-4 mb-8">
+                                            {feature.items.map((item, i) => (
+                                                <li key={i} className="flex items-start gap-3">
+                                                    <Check className="w-4 h-4 text-[#AEE2FF] mt-1 shrink-0" />
+                                                    <span className="text-gray-400 text-sm leading-relaxed">{item}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
                                     </div>
 
-                                    <h3 className="text-xl font-bold text-white mb-8 min-h-[60px]">{feature.title}</h3>
-
-                                    {/* Check List */}
-                                    <ul className="space-y-4 mb-8">
-                                        {feature.items.map((item, i) => (
-                                            <li key={i} className="flex items-start gap-3">
-                                                <Check className="w-4 h-4 text-[#AEE2FF] mt-1 shrink-0" />
-                                                <span className="text-gray-400 text-sm leading-relaxed">{item}</span>
-                                            </li>
-                                        ))}
-                                    </ul>
+                                    <div className="pt-6 border-t border-white/10">
+                                        <a href="#" className="flex items-center gap-2 text-white font-bold text-sm hover:text-[#AEE2FF] transition-colors group-hover:gap-3">
+                                            Learn More <ArrowUpRight className="w-4 h-4" />
+                                        </a>
+                                    </div>
                                 </div>
-
-                                <div className="pt-6 border-t border-white/10">
-                                    <a href="#" className="flex items-center gap-2 text-white font-bold text-sm hover:text-[#AEE2FF] transition-colors group-hover:gap-3">
-                                        Learn More <ArrowUpRight className="w-4 h-4" />
-                                    </a>
-                                </div>
-                            </div>
+                            </GlowingCard>
                         </Reveal>
                     ))}
                 </div>

@@ -8,7 +8,7 @@ export default function VideoShowcase() {
         <section className="relative w-full h-[600px] lg:h-[700px] overflow-hidden">
             {/* Background Image */}
             <Image
-                src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=1920"
+                src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1920"
                 alt="Video Background"
                 fill
                 className="object-cover"

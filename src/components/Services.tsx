@@ -1,5 +1,6 @@
 "use client";
 import { Reveal, StaggerContainer, StaggerItem, ScaleIn } from "@/components/Reveal";
+import { GlowingCard } from "@/components/GlowingCard";
 import { ArrowUpRight, LifeBuoy, Database, Server, ArrowRight } from "lucide-react";
 import Image from "next/image";
 
@@ -50,25 +51,27 @@ export default function Services() {
                 <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-16" staggerDelay={0.15}>
                     {services.map((service, index) => (
                         <StaggerItem key={index} className="h-full">
-                            <div className="group bg-[#1a1f29] rounded-[4px] p-8 h-full flex flex-col justify-between hover:bg-[#1a1f29]/80 transition-all border border-white/5 hover:border-[#AEE2FF]/30 hover:shadow-[0_0_30px_-10px_rgba(174,226,255,0.2)]">
-                                <div>
-                                    {/* Icon */}
-                                    <div className="mb-8 text-white group-hover:text-[#AEE2FF] transition-colors group-hover:scale-110 duration-300 origin-left">
-                                        <service.icon className="w-12 h-12 stroke-[1.5]" />
+                            <GlowingCard className="h-full">
+                                <div className="group bg-[#1a1f29] rounded-[4px] p-8 h-full flex flex-col justify-between transition-all border border-white/5">
+                                    <div>
+                                        {/* Icon */}
+                                        <div className="mb-8 text-white group-hover:text-[#AEE2FF] transition-colors group-hover:scale-110 duration-300 origin-left">
+                                            <service.icon className="w-12 h-12 stroke-[1.5]" />
+                                        </div>
+
+                                        <h3 className="text-xl font-bold text-white mb-4">{service.title}</h3>
+                                        <p className="text-gray-400 text-sm leading-relaxed mb-8">
+                                            {service.description}
+                                        </p>
                                     </div>
 
-                                    <h3 className="text-xl font-bold text-white mb-4">{service.title}</h3>
-                                    <p className="text-gray-400 text-sm leading-relaxed mb-8">
-                                        {service.description}
-                                    </p>
+                                    <div className="pt-6 border-t border-white/10">
+                                        <a href="#" className="flex items-center gap-2 text-white font-bold text-sm hover:text-[#AEE2FF] transition-colors group-hover:gap-3">
+                                            Learn More <ArrowUpRight className="w-4 h-4" />
+                                        </a>
+                                    </div>
                                 </div>
-
-                                <div className="pt-6 border-t border-white/10">
-                                    <a href="#" className="flex items-center gap-2 text-white font-bold text-sm hover:text-[#AEE2FF] transition-colors group-hover:gap-3">
-                                        Learn More <ArrowUpRight className="w-4 h-4" />
-                                    </a>
-                                </div>
-                            </div>
+                            </GlowingCard>
                         </StaggerItem>
                     ))}
 
@@ -76,7 +79,7 @@ export default function Services() {
                     <StaggerItem className="h-full">
                         <div className="relative rounded-[4px] overflow-hidden h-full min-h-[420px] group bg-[#1a1f29]">
                             <Image
-                                src="https://images.unsplash.com/photo-1542626991-cbc4e32524cc?auto=format&fit=crop&q=80&w=800"
+                                src="https://demo.awaikenthemes.com/codeio/it-solutions-dark/wp-content/uploads/2025/08/service-cta-img.jpg"
                                 alt="Support Team"
                                 fill
                                 className="object-cover transition-transform duration-700 group-hover:scale-110"
