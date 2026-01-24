@@ -1,44 +1,33 @@
 "use client";
 import { Reveal } from "@/components/Reveal";
 import { GlowingCard } from "@/components/GlowingCard";
-import { ArrowUpRight, Check, Star, Users, Briefcase, MessageSquare, ShieldCheck, Layers, Award } from "lucide-react";
+import { ArrowUpRight, ShieldCheck, FileSearch, Settings, Lock, Wrench } from "lucide-react";
 
 const features = [
     {
-        icon: Award,
-        title: "Expert Team with Deep Technical Knowledge",
-        items: [
-            "Years of experience across IT",
-            "Certify industry leading expert",
-            "Up-to-date knowledge latest tech"
-        ]
+        icon: FileSearch,
+        title: "Prolabs Identity Audit",
+        description: "Comprehensive Active Directory & Entra ID health and security assessment in one report. Highlights misconfigurations, risks, and performance gaps with clear, prioritized remediation actions."
     },
     {
-        icon: Layers,
-        title: "Proven Expertise Across Diverse IT Environments",
-        items: [
-            "Skilled in adapting tech",
-            "Successfully delivered solutions",
-            "Experience with cloud, on-premise"
-        ]
+        icon: ShieldCheck,
+        title: "Prolabs ACL Guardian",
+        description: "Detects and cleans up risky permissions, including Anonymous/unsafe SIDs and broken ACLs across AD objects. Safely normalizes access control to reduce privilege exposure and harden your directory."
     },
     {
-        icon: Star,
-        title: "Trusted by Industry Leaders Across Sectors",
-        items: [
-            "Recognized by top brands",
-            "Proven results across industries",
-            "Long-term partnerships with Fortune"
-        ]
+        icon: Settings,
+        title: "Prolabs GPO Guardian",
+        description: "Finds GPO permission issues, orphaned/broken links, and inconsistent delegation that can weaken security. Repairs common misconfigurations and helps restore least-privilege control over Group Policy."
     },
     {
-        icon: MessageSquare,
-        title: "Transparent Communicate & Dedicated Support",
-        items: [
-            "Real-Time Project Updates",
-            "Consistent Feedback Loops",
-            "Dedicated Project Accounts Managers"
-        ]
+        icon: Lock,
+        title: "Prolabs TLS Guardian",
+        description: "Scans Windows servers for weak SSL/TLS protocols, ciphers, and insecure configuration baselines. Produces a remediation-ready plan to harden TLS settings without breaking critical workloads."
+    },
+    {
+        icon: Wrench,
+        title: "Prolabs ServiceDesk Toolkit",
+        description: "Streamlines common helpdesk tasks like password resets, MFA resets, unlocks, and account recovery for AD and Entra ID. Standardizes operations with guardrails, logging, and faster resolution times"
     }
 ];
 
@@ -68,28 +57,22 @@ export default function WhyChooseUs() {
                 </div>
 
                 {/* Cards Row */}
-                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-16">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 mb-16">
                     {features.map((feature, index) => (
                         <Reveal key={index} direction="up" delay={index * 0.1}>
                             <GlowingCard className="h-full">
-                                <div className="group bg-[#11141b] rounded-[4px] p-8 h-full flex flex-col justify-between transition-all border border-white/5">
+                                <div className="group bg-[#11141b] rounded-[4px] p-6 h-full flex flex-col justify-between transition-all border border-white/5">
                                     <div>
                                         {/* Icon */}
-                                        <div className="mb-8 text-white group-hover:text-[#AEE2FF] transition-colors">
-                                            <feature.icon className="w-12 h-12 stroke-[1] opacity-90" />
+                                        <div className="mb-6 text-white group-hover:text-[#AEE2FF] transition-colors">
+                                            <feature.icon className="w-10 h-10 stroke-[1] opacity-90" />
                                         </div>
 
-                                        <h3 className="text-xl font-bold text-white mb-8 min-h-[60px]">{feature.title}</h3>
+                                        <h3 className="text-lg font-bold text-white mb-4 min-h-[50px] leading-tight">{feature.title}</h3>
 
-                                        {/* Check List */}
-                                        <ul className="space-y-4 mb-8">
-                                            {feature.items.map((item, i) => (
-                                                <li key={i} className="flex items-start gap-3">
-                                                    <Check className="w-4 h-4 text-[#AEE2FF] mt-1 shrink-0" />
-                                                    <span className="text-gray-400 text-sm leading-relaxed">{item}</span>
-                                                </li>
-                                            ))}
-                                        </ul>
+                                        <p className="text-gray-400 text-sm leading-relaxed mb-6">
+                                            {feature.description}
+                                        </p>
                                     </div>
 
                                     <div className="pt-6 border-t border-white/10">
@@ -100,14 +83,22 @@ export default function WhyChooseUs() {
                                 </div>
                             </GlowingCard>
                         </Reveal>
+                        
                     ))}
                 </div>
 
                 {/* Bottom Footer Text */}
-                <div className="text-center pt-8">
-                    <div className="text-sm text-gray-400">
-                        From day one to enterprise – <span className="text-white underline decoration-gray-500 underline-offset-4 cursor-pointer hover:text-[#AEE2FF] font-medium">We're Your Partner In Long-Term Tech Success.</span>
-                    </div>
+                
+               
+
+                {/* Additional Image Section */}
+                <div className="mt-20 relative w-full h-[300px] md:h-[400px] rounded-2xl overflow-hidden">
+                     <img 
+                        src="/Picture2.png" 
+                        alt="Why Choose Us Illustration" 
+                        className="w-full h-full object-cover"
+                    />
+                     <div className="absolute inset-0 bg-black/20"></div>
                 </div>
 
             </div>

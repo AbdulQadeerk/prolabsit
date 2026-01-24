@@ -34,8 +34,7 @@ export default function Testimonials() {
                             </div>
 
                             <p className="text-white text-lg md:text-xl font-medium italic leading-relaxed mb-10 opacity-90">
-                                "Their team provided detailed roadmaps, proactive recommendations, and implemented a scalable infrastructure that we're confident will serve us for years. Their transparency, speed."
-                            </p>
+"Professional Labs help manage our Email and Domain Environment; they haven’t failed us once. Professional Labs helped us by making full use of Microsoft Technologies ensuring secure access from anywhere to our environment in the time of COVID."                            </p>
 
                             <div className="h-px w-full bg-gradient-to-r from-transparent via-white/20 to-transparent mb-8"></div>
 
@@ -43,8 +42,8 @@ export default function Testimonials() {
                                 <div className="w-16 h-16 rounded-full border-2 border-white/20 overflow-hidden mb-4">
                                     <img src="https://demo.awaikenthemes.com/codeio/it-solutions-dark/wp-content/uploads/2025/08/author-1.jpg" alt="Daniel Johnson" className="w-full h-full object-cover" />
                                 </div>
-                                <h4 className="text-xl font-bold text-white mb-1">Daniel Johnson</h4>
-                                <p className="text-gray-300 text-sm">Cybersecurity Specialist</p>
+                                <h4 className="text-xl font-bold text-white mb-1">ADV. HUSSAIN NALWALA</h4>
+                                <p className="text-gray-300 text-sm">Founder of CNS Juris</p>
                             </div>
                         </Reveal>
                     </div>

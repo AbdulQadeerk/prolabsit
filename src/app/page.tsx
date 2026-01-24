@@ -1,13 +1,13 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import { Marquee } from "@/components/DesignElements";
+// import { Marquee } from "@/components/DesignElements";
 import Services from "@/components/Services";
 import VideoShowcase from "@/components/VideoShowcase";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import HowItWorks from "@/components/HowItWorks";
 import About from "@/components/About";
 import Stats from "@/components/Stats";
-import FeatureGrid from "@/components/FeatureGrid";
+// import FeatureGrid from "@/components/FeatureGrid";
 import Projects from "@/components/Projects";
 import Features from "@/components/Features";
 import Pricing from "@/components/Pricing";
@@ -16,23 +16,26 @@ import Blog from "@/components/Blog";
 import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import FeatureGrid from "@/components/FeatureGrid";
+import { Marquee } from "@/components/DesignElements";
 
 export default function Home() {
     return (
         <main className="min-h-screen bg-[#0b0e13]">
             <Navbar />
             <Hero />
-            <Marquee />
             <Stats />
-            <FeatureGrid />
-            <About />
             <Services />
-            <VideoShowcase />
+            <About />
+            <FeatureGrid />
             <WhyChooseUs />
-            <HowItWorks />
-            <Projects />
-            <Features />
-            <Pricing />
+            <Marquee />
+            {/* <VideoShowcase /> */}
+            
+            {/* <HowItWorks /> */}
+            {/* <Projects /> */}
+            {/* <Features /> */}
+            {/* <Pricing /> */}
             <Testimonials />
             <Blog />
             <FAQ />

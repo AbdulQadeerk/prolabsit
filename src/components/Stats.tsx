@@ -3,10 +3,10 @@ import CountUp from "react-countup";
 import { Fade } from "react-awesome-reveal";
 
 const stats = [
-    { value: 200, label: "Team member", suffix: "+" },
-    { value: 20, label: "Win Awards", suffix: "+" },
-    { value: 650, label: "Completed Project", suffix: "+" },
-    { value: 150, label: "Client reviews", suffix: "k" },
+    { value: 50, label: "Engineers and Developers", suffix: "+" },
+    { value: 100, label: "Customers", suffix: "+" },
+    { value: 35, label: "Presence in Countries", suffix: "+" },
+    { value: 15, label: "Years in Support", suffix: "+" },
 ];
 
 export default function Stats() {

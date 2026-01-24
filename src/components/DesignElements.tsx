@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export const Marquee = () => {
     return (
-        <div className="w-full bg-[#AEE2FF]/5 py-4 overflow-hidden border-y border-white/5">
+        <div className="w-full bg-[#AEE2FF]/5 py-4 overflow-hidden border-y border-white/5 mb-8">
             <div className="flex whitespace-nowrap">
                 <motion.div
                     className="flex gap-16 items-center"

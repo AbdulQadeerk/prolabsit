@@ -98,27 +98,33 @@ export default function Hero() {
 
                             {/* Heading */}
                             <motion.h1 variants={fadeUp} className="text-4xl md:text-5xl lg:text-[68px] font-bold text-white leading-[1.1] mb-6 block">
-                                Empowering businesses through reliable & <br className="hidden lg:block" />
+                               Professional Managed Security and IT Support Services Provider <br className="hidden lg:block" />
                                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-[#AEE2FF]">
-                                    <TypewriterText text="scalable it solutions" delay={1} />
+                                    {/* <TypewriterText text="scalable it solutions" delay={1} /> */}
                                 </span>
                             </motion.h1>
 
                             {/* Description */}
                             <motion.p variants={fadeUp} className="text-lg text-gray-400 mb-10 max-w-lg leading-relaxed">
-                                Harness the power of intelligent IT solutions built to evolve with your business. From cloud infrastructure to 24/7 support, we deliver flexible services.
+Professional Labs aim is to simplify that complexity. <br />
                             </motion.p>
 
-                            {/* Buttons */}
+                            <motion.div variants={fadeUp} className="mb-10">
+                                <Image
+                                    src="/Picture1.png"
+                                    alt="Hero Illustration"
+                                    width={400}
+                                    height={300}
+                                    className="rounded-xl w-full max-w-md"
+                                />
+                            </motion.div>
+
                             <motion.div variants={fadeUp} className="flex flex-wrap gap-4">
                                 <MagneticButton className="cursor-pointer bg-[#AEE2FF] hover:bg-[#90d5ff] text-[#0b0e13] px-9 py-4 rounded-full font-bold transition-all flex items-center gap-2 group shadow-[0_0_20px_rgba(174,226,255,0.3)] hover:shadow-[0_0_40px_rgba(174,226,255,0.6)]">
-                                    Get Started Now
+                                     Get a Free Consultation
                                     <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                                 </MagneticButton>
-                                <MagneticButton className="cursor-pointer bg-transparent hover:bg-white/5 border border-white/20 hover:border-white/40 text-white px-9 py-4 rounded-full font-bold transition-all flex items-center gap-2 group">
-                                    View All Services
-                                    <ArrowRight className="w-5 h-5 -rotate-45 group-hover:rotate-0 transition-transform" />
-                                </MagneticButton>
+                                
                             </motion.div>
                         </motion.div>
                     </div>
@@ -177,20 +183,7 @@ export default function Hero() {
                                     <RotatingText />
                                 </div>
 
-                                {/* Review Badge */}
-                                <motion.div
-                                    animate={{ y: [10, -10, 10] }}
-                                    transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                                    className="absolute top-12 -right-8 z-20 hidden md:block"
-                                >
-                                    <Image
-                                        src="https://demo.awaikenthemes.com/codeio/it-solutions-dark/wp-content/uploads/2025/08/hero-review-image-dark.png"
-                                        alt="Reviews"
-                                        width={160}
-                                        height={80}
-                                        className="w-auto h-auto drop-shadow-2xl"
-                                    />
-                                </motion.div>
+                                
                             </motion.div>
                         </motion.div>
                     </motion.div>

@@ -1,84 +1,71 @@
-import { Reveal, StaggerContainer, StaggerItem, ScaleIn } from "@/components/Reveal";
-import { ArrowUpRight, ArrowRight, Phone, Mail, CheckCircle2 } from "lucide-react";
-import Image from "next/image";
+import { StaggerContainer, StaggerItem } from "@/components/Reveal";
+import { ArrowUpRight, Phone, Eye, BarChart3, Users } from "lucide-react";
 
 export default function FeatureGrid() {
     return (
         <section className="bg-[#0b0e13] pb-20">
             <div className="container mx-auto px-4 md:px-6">
-                {/* 4 Column Grid - No Gap to mimic split panel look or small gap */}
                 <div className="container mx-auto px-4 md:px-6">
                     {/* 4 Column Grid - No Gap to mimic split panel look or small gap */}
                     <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 min-h-[500px] rounded-3xl overflow-hidden">
 
-                        {/* Col 1: Dark Tech Card */}
+                        {/* Col 1: Be Transparent */}
                         <StaggerItem className="bg-[#11141b] p-8 md:p-10 flex flex-col justify-between border-r border-b border-white/5 relative group">
                             <div className="mb-6">
                                 <div className="w-14 h-14 border border-white/10 rounded-xl flex items-center justify-center mb-6 text-[#AEE2FF] group-hover:scale-110 transition-transform duration-300">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7">
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
-                                    </svg>
+                                    <Eye className="w-7 h-7" />
                                 </div>
-                                <h3 className="text-xl font-bold text-white mb-4">24*7 IT Support & Monitoring</h3>
+                                <h3 className="text-xl font-bold text-white mb-4">Be Transparent</h3>
                                 <p className="text-gray-400 text-sm mb-6 leading-relaxed">
-                                    Our dedicated team continuously monitors your systems to detect issues.
+                                    We deserve to have honest, open, and consistent information about our business from leadership. Every employee, no matter the level on the org chart.
                                 </p>
-                                <ul className="space-y-3">
-                                    <li className="flex items-center gap-2 text-sm text-gray-300">
-                                        <div className="w-1.5 h-1.5 rounded-full bg-[#AEE2FF]"></div>
-                                        Round-the-Clock Expert Assistance
-                                    </li>
-                                    <li className="flex items-center gap-2 text-sm text-gray-300">
-                                        <div className="w-1.5 h-1.5 rounded-full bg-[#AEE2FF]"></div>
-                                        Proactive Issue Detection & Resolution
-                                    </li>
-                                </ul>
                             </div>
                             <a href="#" className="flex items-center gap-2 text-[#AEE2FF] font-bold text-sm hover:gap-3 transition-all">
                                 Learn More <ArrowUpRight className="w-4 h-4" />
                             </a>
-                            {/* Background Pattern Overlay */}
+                            
                             <div className="absolute inset-0 opacity-5 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] mix-blend-overlay"></div>
                         </StaggerItem>
 
-                        {/* Col 2: Experience Card */}
-                        <StaggerItem className="bg-[#0b0e13] p-8 md:p-10 flex flex-col justify-center border-r border-b border-white/5 relative">
-                            <ScaleIn delay={0.2}>
-                                <div className="flex items-center -space-x-4 mb-8">
-                                    {[1, 2, 3, 4].map((i) => (
-                                        <div key={i} className="w-12 h-12 rounded-full border-2 border-[#0b0e13] bg-gray-700 overflow-hidden relative z-10 hover:z-20 hover:scale-110 transition-transform">
-                                            <img src={`https://demo.awaikenthemes.com/codeio/it-solutions-dark/wp-content/uploads/2025/08/author-${i}.jpg`} alt="User" className="w-full h-full object-cover" />
-                                        </div>
-                                    ))}
-                                    <div className="w-12 h-12 rounded-full border-2 border-[#0b0e13] bg-[#AEE2FF] flex items-center justify-center text-black font-bold text-xs relative z-10">
-                                        1k+
-                                    </div>
+                        {/* Col 2: Make Calculated Decisions */}
+                         <StaggerItem className="bg-[#11141b] p-8 md:p-10 flex flex-col justify-between border-r border-b border-white/5 relative group">
+                            <div className="mb-6">
+                                <div className="w-14 h-14 border border-white/10 rounded-xl flex items-center justify-center mb-6 text-[#AEE2FF] group-hover:scale-110 transition-transform duration-300">
+                                    <BarChart3 className="w-7 h-7" />
                                 </div>
-                            </ScaleIn>
-
-                            <h3 className="text-xl font-bold text-white mb-4">Experience You Can Trust. Results You Can Measure.</h3>
-                            <p className="text-gray-400 text-sm mb-12 leading-relaxed">
-                                Backed by years of hands-on expertise and proven methodology, we deliver IT solutions.
-                            </p>
-
-                            <div>
-                                <div className="text-6xl font-bold text-white mb-2">25+</div>
-                                <div className="text-gray-400 text-sm uppercase tracking-wider">Years Of Experience</div>
+                                <h3 className="text-xl font-bold text-white mb-4">Make Calculated Decisions</h3>
+                                <p className="text-gray-400 text-sm mb-6 leading-relaxed">
+                                    We collaborate across teams to ensure our decisions are in the best interest of our business. We value calculated, data-driven decisions.
+                                </p>
                             </div>
+                            <a href="#" className="flex items-center gap-2 text-[#AEE2FF] font-bold text-sm hover:gap-3 transition-all">
+                                Learn More <ArrowUpRight className="w-4 h-4" />
+                            </a>
+                            
+                            <div className="absolute inset-0 opacity-5 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] mix-blend-overlay"></div>
                         </StaggerItem>
 
-                        {/* Col 3: Image Card */}
-                        <StaggerItem className="relative h-[300px] md:h-auto border-r border-b border-white/5 group overflow-hidden">
-                            <Image
-                                src="https://demo.awaikenthemes.com/codeio/it-solutions-dark/wp-content/uploads/2025/08/company-benefits-box-1.jpg"
-                                alt="Team Working"
-                                fill
-                                className="object-cover transition-transform duration-700 group-hover:scale-110"
-                            />
-                            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
+                        {/* Col 3: Value Each Other */}
+                        <StaggerItem className="bg-[#11141b] p-8 md:p-10 flex flex-col justify-between border-r border-b border-white/5 relative group">
+                            <div className="mb-6">
+                                <div className="w-14 h-14 border border-white/10 rounded-xl flex items-center justify-center mb-6 text-[#AEE2FF] group-hover:scale-110 transition-transform duration-300">
+                                    <Users className="w-7 h-7" />
+                                </div>
+                                <h3 className="text-xl font-bold text-white mb-4">Value Each Other</h3>
+                                <p className="text-gray-400 text-sm mb-6 leading-relaxed">
+                                    We go out of our way to lift each other up, applaud victories, and communicate with respect and
+                                    honesty. We genuinely care about the success of the team, and we strive to motivate one another.
+                                </p>
+                            </div>
+                            <a href="#" className="flex items-center gap-2 text-[#AEE2FF] font-bold text-sm hover:gap-3 transition-all">
+                                Learn More <ArrowUpRight className="w-4 h-4" />
+                            </a>
+                            
+                            <div className="absolute inset-0 opacity-5 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] mix-blend-overlay"></div>
                         </StaggerItem>
-
-                        {/* Col 4: Contact/Support Card */}
+                    
+                        
+                        {/* Col 4: Contact/Support Card (Unchanged) */}
                         <StaggerItem className="bg-[#11141b] p-8 md:p-10 flex flex-col justify-between border-b border-white/5 relative overflow-hidden group">
                             <div className="relative z-10">
                                 <div className="w-14 h-14 border border-white/10 rounded-xl flex items-center justify-center mb-6 text-[#AEE2FF] group-hover:rotate-12 transition-transform duration-300">

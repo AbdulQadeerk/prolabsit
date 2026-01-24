@@ -93,13 +93,7 @@ export default function HowItWorks() {
                     ))}
                 </div>
 
-                {/* Bottom Footer Text */}
-                <div className="text-center pt-8 border-t border-white/5">
-                    <div className="flex items-center justify-center gap-2 text-sm text-gray-400">
-                        <span className="bg-[#AEE2FF] text-[#0b0e13] text-[10px] font-bold px-2 py-0.5 rounded-sm">Free</span>
-                        <span>From day one to enterprise – <span className="text-white underline decoration-gray-500 underline-offset-4 cursor-pointer hover:text-[#AEE2FF] font-medium">We're Your Partner In Long-Term Tech Success.</span></span>
-                    </div>
-                </div>
+                
 
             </div>
         </section>

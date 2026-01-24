@@ -29,8 +29,7 @@ export default function Footer() {
                             />
                         </Link>
                         <p className="text-gray-400 mb-8 leading-relaxed max-w-sm">
-                            Codeio IT Solutions specializes in delivering cutting-edge managed IT services.
-                        </p>
+Founded in 1997 and headquarter in Dubai, we specialize in simplifying complex problems for our customers with Cyber Security, Cloud Services, Managed Services and Market Research.                        </p>
                         <div className="flex items-center gap-4">
                             <span className="text-white font-bold text-sm">Follow Us:</span>
                             <div className="flex gap-2">
@@ -67,7 +66,7 @@ export default function Footer() {
                                 </div>
                                 <div>
                                     <div className="text-gray-400 text-xs mb-1">Phone Number</div>
-                                    <div className="text-white font-bold text-sm">+ (123) 456-789</div>
+                                    <div className="text-white font-bold text-sm">+971 42866807</div>
                                 </div>
                             </div>
                             <div className="flex items-center gap-4">
@@ -76,7 +75,7 @@ export default function Footer() {
                                 </div>
                                 <div>
                                     <div className="text-gray-400 text-xs mb-1">Email Address</div>
-                                    <div className="text-white font-bold text-sm">Info@Domainname.Com</div>
+                                    <div className="text-white font-bold text-sm">Info@professionallabs.Com</div>
                                 </div>
                             </div>
                         </div>
